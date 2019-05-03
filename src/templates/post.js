@@ -1,6 +1,5 @@
 import React, { Component } from "react"
-import PropTypes from "prop-types"
-import Img from "gatsby-image"
+import { graphql } from "gatsby"
 
 class PostTemplate extends Component {
   render() {
@@ -8,7 +7,7 @@ class PostTemplate extends Component {
 
     return (
       <div>
-        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+        <h1>{post.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     )

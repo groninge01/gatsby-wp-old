@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { graphql } from "gatsby"
 
 class PageTemplate extends Component {
   render() {
@@ -8,11 +9,11 @@ class PageTemplate extends Component {
 
     return (
       <div>
-        <h1 dangerouslySetInnerHTML={{ __html: currentPage.title }} />
+        <h1>{currentPage.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: currentPage.content }} />
 
-        <p dangerouslySetInnerHTML={{ __html: currentPage.date }} />
-        <p dangerouslySetInnerHTML={{ __html: currentPage.slug }} />
+        <p>{currentPage.date}</p>
+        <p>{currentPage.slug}</p>
       </div>
     )
   }
@@ -28,12 +29,6 @@ export const pageQuery = graphql`
       slug
       id
       date(formatString: "MMMM DD, YYYY")
-    }
-    site {
-      id
-      siteMetadata {
-        title
-      }
     }
   }
 `
